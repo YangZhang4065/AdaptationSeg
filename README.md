@@ -1,10 +1,10 @@
 # AdaptationSeg
-- - - -
+
 
 ## Requirement
 * Python 3
 * Theano
-* Keras>=2.0.2
+* Keras>=2.0.5 (Otherwise you will have `Conv2DTranspose` problem in Theano)
 
 ## Usage
 __Make sure your Keras backend is Theano and image_data_format is "channels_first"__
