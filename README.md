@@ -15,15 +15,23 @@ We proposed a set of contraints to domain-adapt an arbitrary segmentation convol
 ![Overview](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/overview_cropped-1.png)
 
 ## Prerequisites
-* Python 3
-* [Theano](http://deeplearning.net/software/theano/)
-* [Keras](https://keras.io/)>=2.0.5 (Lower version might encounter `Conv2DTranspose` problem with Theano backend)
-* [Pillow](https://python-pillow.org/)
+* Linux
+* A CUDA-enabled NVIDIA GPU; Recommend video memory >= 11GB
 
-## Usage
+
+## Getting Started
+
+### Installation
+The code requires following dependencies:
+* Python 2/3
+* Theano ([installation](http://deeplearning.net/software/theano/install_ubuntu.html))
+* Keras>=2.0.5 (Lower version might encounter `Conv2DTranspose` problem with Theano backend) ([installation](https://keras.io/#installation); You might want to install though `pip` as `conda` only offers Keras<=2.0.2)
+* Pillow ([installation](https://pillow.readthedocs.io/en/latest/installation.html))
+
+### Keras backend setup
 **Make sure your Keras `backend` is `Theano` and `image_data_format` is `channels_first`**
 
-[How do I check/change them?](https://keras.io/backend/)
+[How do I check/switch them?](https://keras.io/backend/)
 
 ## Note
 The original framework was implmented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
