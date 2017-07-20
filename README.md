@@ -41,6 +41,33 @@ The code requires following dependencies:
 
 2, Download `SYNTHIA-RAND-CITYSCAPES` in SYNTHIA dataset [here](http://synthia-dataset.net/download-2/).
 
+3, Download our auxiliary pre-inferred target domain properties (Including both superpixel landmark and label distribution described in the paper) & parsed annotation here.
+
+4, Unzip and organize them in this way:
+
+```shell
+./
+├── train_val_DA.py
+├── ...
+└── data/
+    ├── Image/
+    │   ├── CityScape/           # Unzip from two CityScape zips
+    │   │   ├── test/
+    │   │   ├── train/
+    │   │   ├── train_extra/
+    │   │   └── val/
+    │   └── SYNTHIA/             # Unzip from the SYNTHIA dataset
+    │       └── train/
+    ├── label_distribution/      # Unzip from our auxiliary dataset
+    │   └── ...
+    ├── segmentation_annotation/ # Unzip from our auxiliary dataset
+    │   ├── ...
+    ├── SP_labels/               # Unzip from our auxiliary dataset
+    │   └── ...
+    └── SP_landmark/             # Unzip from our auxiliary dataset
+        └── ...
+```
+
 
 ## Note
 The original framework was implmented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
