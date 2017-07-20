@@ -70,13 +70,13 @@ The code requires following dependencies:
 
 ### Training
 
-Run `train_val_DA.py` either in your favorite Python IDE or in terminal using:
+Run `train_val_DA.py` either in your favorite Python IDE or in terminal by typing:
 
 ```shell
 python train_val_DA.py
 ```
 
-This would train the model for 6 epochs by default and save the best model during training. You can stop it and proceed to the evaluation during training if you feel it takes too much time however performance would not be guaranteed then.
+This would train the model for 6 epochs and save the best model during the training. You can stop it and continue to the evaluation during training if you feel it takes too long however performance would not be guaranteed then.
 
 ### Evaluation
 
