@@ -1,6 +1,6 @@
 # AdaptationSeg
 
-This is the Python reference implementation for AdaptionSeg proposed in "Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes".
+This is the Python reference implementation of AdaptionSeg proposed in "Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes".
 
 <pre>
 Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
@@ -10,7 +10,7 @@ International Conference on Computer Vision, 2017
 
 ![Qualitative Results](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/qualitative_results.png)
 
-We proposed a set of contraints to domain-adapt an arbitrary segmentation convolutional neural network (CNN) trained on source domain (sythetic images) to target domain (real images) without accessing target domain annotations.
+We proposed a set of constraints to domain-adapt an arbitrary segmentation convolutional neural network (CNN) trained on source domain (synthetic images) to target domain (real images) without accessing target domain annotations.
 
 ![Overview](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/overview_cropped-1.png)
 
@@ -68,6 +68,17 @@ The code requires following dependencies:
         └── ...
 ```
 
+### Training
+
+Run `train_val_DA.py` either in your favorite Python IDE or in terminal using:
+
+```shell
+python train_val_DA.py
+```
+
+This would train the model for 6 epochs by default and save the best model during training. You can stop it and proceed to the evaluation during training if you feel it takes too much time however performance would not be guaranteed then.
+
+### Evaluation
 
 ## Note
 The original framework was implmented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
