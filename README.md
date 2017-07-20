@@ -29,9 +29,18 @@ The code requires following dependencies:
 * Pillow ([installation](https://pillow.readthedocs.io/en/latest/installation.html))
 
 ### Keras backend setup
+
 **Make sure your Keras `backend` is `Theano` and `image_data_format` is `channels_first`**
 
 [How do I check/switch them?](https://keras.io/backend/)
+
+
+### Download dataset
+
+1, Download `leftImg8bit_trainvaltest.zip` and `leftImg8bit_trainextra.zip` in CityScape dataset [here](https://pillow.readthedocs.io/en/latest/installation.html). (Require registration)
+
+2, Download `SYNTHIA-RAND-CITYSCAPES` in SYNTHIA dataset [here](http://synthia-dataset.net/download-2/).
+
 
 ## Note
 The original framework was implmented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
