@@ -25,7 +25,7 @@ We introduced a set of constraints to domain-adapt an arbitrary segmentation con
 The code requires following dependencies:
 * Python 2/3
 * Theano ([installation](http://deeplearning.net/software/theano/install_ubuntu.html))
-* Keras>=2.0.5 (Lower version might encounter `Conv2DTranspose` problem with Theano backend) ([installation](https://keras.io/#installation); You might want to install though `pip` as `conda` only offers Keras<=2.0.2)
+* Keras>=2.0.5 (Lower version might encounter `Conv2DTranspose` problem with Theano backend) ([installation](https://keras.io/#installation); You might want to install though `pip` since `conda` only offers Keras<=2.0.2)
 * Pillow ([installation](https://pillow.readthedocs.io/en/latest/installation.html))
 
 ### Keras backend setup
