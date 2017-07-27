@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
-
 
 import  numpy as np
 from warp_data import test_cityscape_generator
