@@ -1,10 +1,5 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 10 14:43:05 2016
-
-@author: gong
-"""
 
 from keras.models import Model
 from keras.layers import Conv2D,Input,Activation,MaxPooling2D,Dropout
