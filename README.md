@@ -70,15 +70,23 @@ The code requires following dependencies:
 
 ### Training
 
-Run `train_val_DA.py` either in your favorite Python IDE or in terminal by typing:
+Run `train_val_FCN_DA.py` either in your favorite Python IDE or in terminal by typing:
 
 ```shell
-python train_val_DA.py
+python train_val_FCN_DA.py
 ```
 
 This would train the model for 6 epochs and save the best model during the training. You can stop it and continue to the evaluation during training if you feel it takes too long however performance would not be guaranteed then.
 
 ### Evaluation
+
+After running `train_val_FCN_DA.py` for at least 500 steps, run `test_FCN_DA.py` either in your favorite Python IDE or in terminal by typing:
+
+```shell
+python test_FCN_DA.py
+```
+
+This would evaluate both pre-trained SYNTHIA-FCN and adapted FCN over CityScape dataset and print both mean IoU.
 
 ## Note
 The original framework was implmented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
