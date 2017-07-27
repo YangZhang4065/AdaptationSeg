@@ -43,7 +43,7 @@ The code requires following dependencies:
 
 3, Download our auxiliary pre-inferred target domain properties (Including both superpixel landmark and label distribution described in the paper) & parsed annotation [here](http://crcv.ucf.edu/data/adaptationseg/ICCV_dataset.zip).
 
-4, Unzip and organize them in this way (Hint: You may want to try [symbolic link](https://kb.iu.edu/d/abbe) to link the folder if you have already downloaded the datasets but do not want to move it around):
+4, Unzip and organize them in this way:
 
 ```shell
 ./
@@ -67,6 +67,7 @@ The code requires following dependencies:
     └── SP_landmark/             # Unzip from our auxiliary dataset
         └── ...
 ```
+(Hint: You may want to try [symbolic link](https://kb.iu.edu/d/abbe) to link the folder if you have already downloaded the datasets but do not want to move it around)
 
 ### Training
 
