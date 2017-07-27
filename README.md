@@ -67,7 +67,7 @@ The code requires following dependencies:
     └── SP_landmark/             # Unzip from our auxiliary dataset
         └── ...
 ```
-(Hint: You may want to link the folder with [symbolic link](https://kb.iu.edu/d/abbe) if you have already downloaded the datasets but do not want to move them around)
+(Hint: If you have already downloaded the datasets but do not want to move them around, you may want to create some [symbolic links](https://kb.iu.edu/d/abbe) of exsiting local datasets)
 
 ### Training
 
