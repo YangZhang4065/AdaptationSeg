@@ -11,7 +11,7 @@ import sys
 from random import sample
 import urllib
 
-sys.path.insert(0,'./cityscapesScripts-master/cityscapesscripts/evaluation')
+sys.path.insert(0,'./cityscapesScripts/cityscapesscripts/evaluation')
 from city_meanIU import city_meanIU
 
 #parameters
