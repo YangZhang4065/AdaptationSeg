@@ -1,0 +1,3 @@
+[submodule "cityscapesScripts"]
+	path = cityscapesScripts
+	url = https://github.com/YangZhang4065/cityscapesScripts
