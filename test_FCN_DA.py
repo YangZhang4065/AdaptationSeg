@@ -6,7 +6,7 @@ import  numpy as np
 from warp_data import test_cityscape_generator
 import sys
 
-sys.path.insert(0,'./cityscapesScripts-master/cityscapesscripts/evaluation')
+sys.path.insert(0,'./cityscapesScripts/cityscapesscripts/evaluation')
 from city_meanIU import city_meanIU
 
 image_size=[320,640]
