@@ -126,7 +126,7 @@ def binarize_SP(batch_seg):
         
 
 print('Start loading files')
-from warp_data import train_synthia_generator,val_synthia_generator,cityscape_im_generator
+from .warp_data import train_synthia_generator,val_synthia_generator,cityscape_im_generator
 val_mean_IU_list=list()
 (loaded_val_im,loaded_val_label)=val_synthia_generator[range(len(val_synthia_generator))]
 loaded_val_im=loaded_val_im.astype('float32')-image_mean
