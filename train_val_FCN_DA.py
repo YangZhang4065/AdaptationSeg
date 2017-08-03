@@ -42,7 +42,7 @@ image_mean[:,1,:,:] = 116.779
 image_mean[:,2,:,:] = 123.68
 
 #create network
-from FCN_da import create_vgg16_FCN
+from .FCN_da import create_vgg16_FCN
 seg_model=create_vgg16_FCN(image_size[0],image_size[1],class_number)
 seg_model.load_weights('SYNTHIA_FCN.h5')
 if os.path.isfile(output_name):
