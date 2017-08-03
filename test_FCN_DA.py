@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import  numpy as np
-from warp_data import test_cityscape_generator
+from .warp_data import test_cityscape_generator
 import sys
 
 sys.path.insert(0,'./cityscapesScripts/cityscapesscripts/evaluation')
@@ -21,7 +21,7 @@ loaded_test_im=test_cityscape_generator[range(len(test_cityscape_generator))]
 loaded_test_im,loaded_test_label=loaded_test_im.astype('float32')-image_mean
 
 #create network
-from FCN_da import create_vgg16_FCN
+from .FCN_da import create_vgg16_FCN
 seg_model=create_vgg16_FCN(image_size[0],image_size[1],class_number)
 
 #test pretrained baseline model mean IoU
