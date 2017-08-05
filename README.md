@@ -8,6 +8,8 @@ Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
 International Conference on Computer Vision, 2017
 </pre>
 
+[[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465)
+
 ![Qualitative Results](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/qualitative_results.png)
 
 We introduced a set of constraints to domain-adapt an arbitrary segmentation convolutional neural network (CNN) trained on source domain (synthetic images) to target domain (real images) without accessing target domain annotations.
