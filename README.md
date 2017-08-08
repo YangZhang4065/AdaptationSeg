@@ -4,7 +4,7 @@ This is the Python reference implementation of AdaptionSeg proposed in "Curricul
 
 <pre>
 Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
-<a href='https://yangzhang4065.github.io/'>Yang Zhang</a>;Philip David;<a href='http://crcv.ucf.edu/people/faculty/Gong/'>Boqing Gong</a>;
+<a href='https://yangzhang4065.github.io/'>Yang Zhang</a>; Philip David; <a href='http://crcv.ucf.edu/people/faculty/Gong/'>Boqing Gong</a>;
 International Conference on Computer Vision, 2017
 </pre>
 
