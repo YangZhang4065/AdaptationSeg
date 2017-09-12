@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import  numpy as np
-from .warp_data import test_cityscape_generator
+from warp_data import test_cityscape_generator
 import sys
 
 sys.path.insert(0,'./cityscapesScripts/cityscapesscripts/evaluation')
