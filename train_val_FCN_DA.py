@@ -9,7 +9,6 @@ import os.path
 from math import ceil
 import sys
 from random import sample
-import urllib
 
 sys.path.insert(0,'./cityscapesScripts/cityscapesscripts/evaluation')
 from city_meanIU import city_meanIU
@@ -24,8 +23,11 @@ class_number=22
 
 #download pretrained SYNTHIA network
 #you can start from scratch if you want of course
-if not os.path.isfile('SYNTHIA_FCN.h5'):
-    urllib.urlretrieve('http://crcv.ucf.edu/data/adaptationseg/SYNTHIA_FCN.h5', './SYNTHIA_FCN.h5')
+url='http://crcv.ucf.edu/data/adaptationseg/SYNTHIA_FCN.h5'
+import urllib.request
+import shutil
+with urllib.request.urlopen(url) as response, open('./SYNTHIA_FCN.h5', 'wb') as out_file:
+    shutil.copyfileobj(response, out_file)
 
 #set valid classes bool
 index_array=np.zeros((class_number))
@@ -42,7 +44,7 @@ image_mean[:,1,:,:] = 116.779
 image_mean[:,2,:,:] = 123.68
 
 #create network
-from .FCN_da import create_vgg16_FCN
+from FCN_da import create_vgg16_FCN
 seg_model=create_vgg16_FCN(image_size[0],image_size[1],class_number)
 seg_model.load_weights('SYNTHIA_FCN.h5')
 if os.path.isfile(output_name):
@@ -126,7 +128,7 @@ def binarize_SP(batch_seg):
         
 
 print('Start loading files')
-from .warp_data import train_synthia_generator,val_synthia_generator,cityscape_im_generator
+from warp_data import train_synthia_generator,val_synthia_generator,cityscape_im_generator
 val_mean_IU_list=list()
 (loaded_val_im,loaded_val_label)=val_synthia_generator[range(len(val_synthia_generator))]
 loaded_val_im=loaded_val_im.astype('float32')-image_mean
