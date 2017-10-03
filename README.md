@@ -93,3 +93,15 @@ This would evaluate both pre-trained SYNTHIA-FCN and adapted FCN over CityScape 
 
 ## Note
 The original framework was implemented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
+
+## Citation
+Please cite our paper if this code benefits your reseaarch:
+```
+@InProceedings{Zhang_2017_ICCV,
+author = {Zhang, Yang and David, Philip and Gong, Boqing},
+title = {Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+month = {Oct},
+year = {2017}
+}
+```
