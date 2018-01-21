@@ -8,7 +8,7 @@ Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
 International Conference on Computer Vision, 2017
 </pre>
 
-[[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465)
+[[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465) [[**Poster**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV2017-poster-v2.pdf)
 
 ![Qualitative Results](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/qualitative_results.png)
 
@@ -100,7 +100,10 @@ Please cite our paper if this code benefits your reseaarch:
 @InProceedings{Zhang_2017_ICCV,
 author = {Zhang, Yang and David, Philip and Gong, Boqing},
 title = {Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes},
-booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+booktitle={The IEEE International Conference on Computer Vision (ICCV)},
+volume={2},
+number={5},
+pages={6},
 month = {Oct},
 year = {2017}
 }
