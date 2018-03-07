@@ -3,6 +3,7 @@ import  numpy as np
 from PIL import Image
 from multiprocessing import Pool
 from scipy.io import loadmat
+from glob import glob
 
 image_size=[640,320]
 
@@ -65,46 +66,39 @@ def load_label(f_path_list):
 #load data
 # config
 from os import listdir,walk
-from os.path import isfile, join,basename,splitext
-    
-synthia_seg_path='./data/segmentation_annotation/SYNTHIA/GT/parsed_LABELS/'
-synthia_seg_file_list = [f for f in listdir(synthia_seg_path) if isfile(join(synthia_seg_path, f))]
-
-val_synthia_seg_list=synthia_seg_file_list[::30]
-
-train_synthia_seg_list=synthia_seg_file_list
-del train_synthia_seg_list[::30]
+from os.path import isfile, join
 
 class image_label_segment_generator(object):
-    def __init__(self, seg_list,im_path,seg_path):
-        self.seg_list = seg_list
-        self.im_path = im_path
+    def __init__(self, im_list,seg_path):
+        self.im_list = im_list
         self.seg_path = seg_path
 
     def __len__(self):
-        return(len(self.seg_list))
+        return(len(self.im_list))
         
     def __getitem__(self, key):
-        seg_name_list=[self.seg_list[j] for j in key]
-        seg_list_to_load=[self.seg_path+i for i in seg_name_list]
+        im_name_list=[self.im_list[j].split('/')[-1] for j in key]
+        seg_list_to_load=[self.seg_path+i for i in im_name_list]
 
         loaded_label=load_label(seg_list_to_load)
-        im_list=list()
-        for seg_path in seg_name_list:
-            current_name=seg_path[0:-4]
-            im_list.append(self.im_path+current_name+'.png')
-        loaded_im=load_image(im_list)
+        loaded_im=load_image(self.im_list)
         return (loaded_im,loaded_label)
 
-train_synthia_generator=image_label_segment_generator(train_synthia_seg_list,'./data/Image/SYNTHIA/train/',synthia_seg_path)
-cityscape_val_im_path='./data/Image/CityScape/train/'
-cityscape_val_im_list=[f for f in listdir(cityscape_val_im_path) if isfile(join(cityscape_val_im_path, f))]
-cityscape_val_im_list=cityscape_val_im_list[::5]
-val_synthia_generator=image_label_segment_generator(cityscape_val_im_list,cityscape_val_im_path,'./data/segmentation_annotation/Parsed_CityScape/train/')
+synthia_im_path='../data/Image/SYNTHIA/train/'
+synthia_im_file_list = [y for x in walk(synthia_im_path) for y in glob(join(x[0], '*.png'))]
+val_synthia_im_list=synthia_im_file_list[::30]
+train_synthia_im_list=synthia_im_file_list
+del train_synthia_im_list[::30]
+train_synthia_generator=image_label_segment_generator(train_synthia_im_list,'../data/segmentation_annotation/SYNTHIA/GT/parsed_LABELS/')
 
-cityscape_test_im_path='./data/Image/CityScape/val/'
+cityscape_val_im_path='../data/Image/CityScape/train/'
+cityscape_val_im_list = [y for x in walk(cityscape_val_im_path) for y in glob(join(x[0], '*.png'))]
+cityscape_val_im_list=cityscape_val_im_list[::5]
+val_synthia_generator=image_label_segment_generator(cityscape_val_im_list,'../data/segmentation_annotation/Parsed_CityScape/train/')
+
+cityscape_test_im_path='../data/Image/CityScape/val/'
 cityscape_test_im_list=[f for f in listdir(cityscape_test_im_path) if isfile(join(cityscape_test_im_path, f))]
-test_cityscape_generator=image_label_segment_generator(cityscape_test_im_path,cityscape_test_im_list,'./data/segmentation_annotation/Parsed_CityScape/val/')
+test_cityscape_generator=image_label_segment_generator(cityscape_test_im_list,'../data/segmentation_annotation/Parsed_CityScape/val/')
 
 class image_layout_segment_generator(object):
     def __init__(self, im_list,SP_map_list,SP_annot_list,mat_list):
@@ -128,15 +122,16 @@ class image_layout_segment_generator(object):
         loaded_mat=load_mat(mat_name_list)
         return loaded_im,SP_map,SP_annot,loaded_mat
         
-cityscape_im_path='./data/Image/CityScape/'
-cityscape_SP_map_path='./data/SP_labels/Parsed_CityScape/'
-cityscape_SP_annot_path='./data/SP_landmark/Parsed_CityScape/'
-cityscape_mat_path='./data/label_distribution/Parsed_CityScape_inception/'
+cityscape_im_path='../data/Image/CityScape/'
+cityscape_SP_map_path='../data/SP_labels/Parsed_CityScape/'
+cityscape_SP_annot_path='../data/SP_landmark/Parsed_CityScape/'
+cityscape_mat_path='../data/label_distribution/Parsed_CityScape_inception/'
 
-from glob import glob
+
 cityscape_im_list = [y for x in walk(cityscape_im_path) for y in glob(join(x[0], '*.png'))]
-cityscape_SP_map_list = [cityscape_SP_map_path+x[len(cityscape_im_path):-4]+'.png' for x in cityscape_im_list]
-cityscape_SP_annot_list = [cityscape_SP_annot_path+x[len(cityscape_im_path):-4]+'.png' for x in cityscape_im_list]
-cityscape_mat_list = [cityscape_mat_path+x[len(cityscape_im_path):-4]+'.mat' for x in cityscape_im_list]
+aux_data_list=[x.split('/')[-3]+'/'+x.split('/')[-1] for x in cityscape_im_list]
+cityscape_SP_map_list = [cityscape_SP_map_path+x[0:-4]+'.png' for x in aux_data_list]
+cityscape_SP_annot_list = [cityscape_SP_annot_path+x[0:-4]+'.png' for x in aux_data_list]
+cityscape_mat_list = [cityscape_mat_path+x[0:-4]+'.mat' for x in aux_data_list]
 
 cityscape_im_generator=image_layout_segment_generator(cityscape_im_list,cityscape_SP_map_list,cityscape_SP_annot_list,cityscape_mat_list)
