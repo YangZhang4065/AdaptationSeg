@@ -81,7 +81,7 @@ class image_label_segment_generator(object):
         seg_list_to_load=[self.seg_path+i for i in im_name_list]
 
         loaded_label=load_label(seg_list_to_load)
-        loaded_im=load_image(self.im_list)
+        loaded_im=load_image([self.im_list[j] for j in key])
         return (loaded_im,loaded_label)
 
 synthia_im_path='../data/Image/SYNTHIA/train/'
