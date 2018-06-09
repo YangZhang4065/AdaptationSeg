@@ -84,21 +84,21 @@ class image_label_segment_generator(object):
         loaded_im=load_image([self.im_list[j] for j in key])
         return (loaded_im,loaded_label)
 
-synthia_im_path='../data/Image/SYNTHIA/train/'
+synthia_im_path='./data/Image/SYNTHIA/train/'
 synthia_im_file_list = [y for x in walk(synthia_im_path) for y in glob(join(x[0], '*.png'))]
 val_synthia_im_list=synthia_im_file_list[::30]
 train_synthia_im_list=synthia_im_file_list
 del train_synthia_im_list[::30]
-train_synthia_generator=image_label_segment_generator(train_synthia_im_list,'../data/segmentation_annotation/SYNTHIA/GT/parsed_LABELS/')
+train_synthia_generator=image_label_segment_generator(train_synthia_im_list,'./data/segmentation_annotation/SYNTHIA/GT/parsed_LABELS/')
 
-cityscape_val_im_path='../data/Image/CityScape/train/'
+cityscape_val_im_path='./data/Image/CityScape/train/'
 cityscape_val_im_list = [y for x in walk(cityscape_val_im_path) for y in glob(join(x[0], '*.png'))]
 cityscape_val_im_list=cityscape_val_im_list[::5]
-val_synthia_generator=image_label_segment_generator(cityscape_val_im_list,'../data/segmentation_annotation/Parsed_CityScape/train/')
+val_synthia_generator=image_label_segment_generator(cityscape_val_im_list,'./data/segmentation_annotation/Parsed_CityScape/train/')
 
-cityscape_test_im_path='../data/Image/CityScape/val/'
+cityscape_test_im_path='./data/Image/CityScape/val/'
 cityscape_test_im_list=[f for f in listdir(cityscape_test_im_path) if isfile(join(cityscape_test_im_path, f))]
-test_cityscape_generator=image_label_segment_generator(cityscape_test_im_list,'../data/segmentation_annotation/Parsed_CityScape/val/')
+test_cityscape_generator=image_label_segment_generator(cityscape_test_im_list,'./data/segmentation_annotation/Parsed_CityScape/val/')
 
 class image_layout_segment_generator(object):
     def __init__(self, im_list,SP_map_list,SP_annot_list,mat_list):
@@ -122,10 +122,10 @@ class image_layout_segment_generator(object):
         loaded_mat=load_mat(mat_name_list)
         return loaded_im,SP_map,SP_annot,loaded_mat
         
-cityscape_im_path='../data/Image/CityScape/'
-cityscape_SP_map_path='../data/SP_labels/Parsed_CityScape/'
-cityscape_SP_annot_path='../data/SP_landmark/Parsed_CityScape/'
-cityscape_mat_path='../data/label_distribution/Parsed_CityScape_inception/'
+cityscape_im_path='./data/Image/CityScape/'
+cityscape_SP_map_path='./data/SP_labels/Parsed_CityScape/'
+cityscape_SP_annot_path='./data/SP_landmark/Parsed_CityScape/'
+cityscape_mat_path='./data/label_distribution/Parsed_CityScape_inception/'
 
 
 cityscape_im_list = [y for x in walk(cityscape_im_path) for y in glob(join(x[0], '*.png'))]
