@@ -97,7 +97,7 @@ cityscape_val_im_list=cityscape_val_im_list[::5]
 val_synthia_generator=image_label_segment_generator(cityscape_val_im_list,'./data/segmentation_annotation/Parsed_CityScape/train/')
 
 cityscape_test_im_path='./data/Image/CityScape/val/'
-cityscape_test_im_list=[f for f in listdir(cityscape_test_im_path) if isfile(join(cityscape_test_im_path, f))]
+cityscape_test_im_list = [y for x in walk(cityscape_test_im_path) for y in glob(join(x[0], '*.png'))]
 test_cityscape_generator=image_label_segment_generator(cityscape_test_im_list,'./data/segmentation_annotation/Parsed_CityScape/val/')
 
 class image_layout_segment_generator(object):
