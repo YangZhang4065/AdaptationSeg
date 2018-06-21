@@ -32,7 +32,8 @@ The code requires following dependencies:
 
 ### Keras backend setup
 
-**Make sure your Keras `backend` is `Theano` and `image_data_format` is `channels_first`**
+**Make sure your Keras's  `image_data_format` is `channels_first`**.
+It is recommended to use `Theano` as the `backend`. However `Tensorflow` should also be okay. Note that using `Tensorflow` will result in lower initial/baseline model performance because the baseline model was trained using Theano.
 
 [How do I check/switch them?](https://keras.io/backend/)
 
@@ -99,7 +100,7 @@ python test_FCN_DA.py
 This would evaluate both pre-trained SYNTHIA-FCN and adapted FCN over CityScape dataset and print both mean IoU.
 
 ## Note
-The original framework was implemented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper.
+The original framework was implemented in Keras 1 with a custom transposed convolution ops. The performance might be slightly different from the ones reported in the paper. Also, some new commits in TF/Theano optimizer implementation after the code release has broken the losses' numerical stability. I have changed code's optimizer to SGD despite the original paper used Adadelta. You are welcome to try Adadelta/Adam however it seems that they will result in a NaN loss right after training starts. If the NaN problem persists, try to remove the label distribution loss from the training.
 
 ## Citation
 Please cite our paper if this code benefits your reseaarch:
