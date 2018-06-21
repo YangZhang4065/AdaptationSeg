@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from keras.optimizers import Adadelta
+from keras.optimizers import Adadelta,SGD
 from keras.callbacks import Callback
 from keras import backend as K
 import  numpy as np
@@ -56,13 +56,12 @@ def SP_pixelwise_loss(y_true,y_pred):
     y_true_label=y_true[:,:class_number,:,:]
     y_true_SP_weight=y_true[:,class_number:,:,:]
     
-    y_pred=K.clip(y_pred,-50.,50.)#prevent overflow
+    y_pred=K.clip(y_pred,-30.,30.)#prevent overflow
     sample_num_per_class=K.sum(y_true_label,axis=[2,3],keepdims=True)
     class_ind=K.cast(K.greater(sample_num_per_class,0.),'float32')
     avg_sample_num_per_class=K.sum(sample_num_per_class,axis=1,keepdims=True)/K.sum(class_ind,axis=1,keepdims=True)
     sample_weight_per_class=avg_sample_num_per_class/(sample_num_per_class+0.1)
-    exp_pred=K.exp(y_pred-K.max(y_pred,axis=1,keepdims=True))
-    y_pred_softmax=exp_pred/K.sum(exp_pred,axis=1,keepdims=True)
+    y_pred_softmax=K.softmax(y_pred,axis=1)
     pixel_wise_loss=-K.log(y_pred_softmax)*y_true_label
     pixel_wise_loss=pixel_wise_loss*sample_weight_per_class
     weighter_pixel_wise_loss=K.sum(pixel_wise_loss,axis=1,keepdims=True)
@@ -72,24 +71,23 @@ def SP_pixelwise_loss(y_true,y_pred):
 #label distribution loss
 def layout_loss_hard(y_true,y_pred):
     
-    y_pred=K.clip(y_pred,-50.,50.)#prevent overflow
-    exp_pred=K.exp(y_pred-K.max(y_pred,axis=1,keepdims=True))
-    y_pred_softmax=exp_pred/K.sum(exp_pred,axis=1,keepdims=True)
+    y_pred=K.clip(y_pred,-30.,30.)#prevent overflow
+    y_pred_softmax=K.softmax(y_pred,axis=1)
     
     max_pred_softmax=K.max(y_pred_softmax,axis=1,keepdims=True)
     bin_pred_softmax_a=y_pred_softmax/max_pred_softmax
-    bin_pred_softmax=bin_pred_softmax_a**6.
+    bin_pred_softmax=bin_pred_softmax_a**5.
     
     final_pred=K.mean(bin_pred_softmax,axis=[2,3])
     final_pred=final_pred/(K.sum(final_pred,axis=1,keepdims=True)+K.epsilon())
     y_true_s=K.squeeze(y_true,axis=3)
     y_true_s=K.squeeze(y_true_s,axis=2)
-    tier_wise_loss_v=-K.clip(K.log(final_pred),-500,500)*y_true_s
-    return K.mean(K.sum(tier_wise_loss_v,axis=1))
+    tier_wise_loss_v=K.categorical_crossentropy(y_true_s,final_pred)
+    return K.mean(tier_wise_loss_v)
 
 
 #compile
-seg_model.compile(optimizer=Adadelta(),
+seg_model.compile(optimizer=SGD(lr=1e-5),
               loss={'output': SP_pixelwise_loss, 'output_2': layout_loss_hard},
               loss_weights={'output': 1.,'output_2':0.1})
 
