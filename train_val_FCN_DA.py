@@ -15,8 +15,8 @@ from city_meanIU import city_meanIU
 
 #parameters
 image_size=[320,640]
-source_batch_size=5
-target_batch_size=5
+source_batch_size=4
+target_batch_size=4
 batch_size=source_batch_size+target_batch_size
 output_name='SYNTHIA_FCN_DA.h5'
 class_number=22
@@ -143,6 +143,7 @@ def myGenerator():
             
             tar_idx=sample(range(len(cityscape_im_generator)),target_batch_size)
             loaded_target_im,loaded_SP_map,loaded_SP_annotation,loaded_target_obj_pre=cityscape_im_generator[tar_idx]
+            loaded_target_im=loaded_target_im.astype('float32')-image_mean
             
             loaded_SP_annotation=binarize_label(loaded_SP_annotation).astype('float32')
             loaded_SP_map=binarize_SP(loaded_SP_map)
