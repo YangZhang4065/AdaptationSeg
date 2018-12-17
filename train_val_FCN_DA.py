@@ -141,7 +141,16 @@ def myGenerator():
             loaded_source_im=loaded_source_im.astype('float32')-image_mean
             loaded_source_label=binarize_label(loaded_source_label).astype('float32')
             
-            tar_idx=sample(range(len(cityscape_im_generator)),target_batch_size)
+            while True:#There are some empty annotation in the dataset. They result in NaN
+                tar_idx=sample(range(len(cityscape_im_generator)),target_batch_size)
+                loaded_target_im,loaded_SP_map,loaded_SP_annotation,loaded_target_obj_pre=cityscape_im_generator[tar_idx]
+                reload_flag=False
+                for i_tar in range(len(tar_idx)):
+                    if len(np.unique(loaded_SP_annotation[i_tar,...]))==1:
+                        reload_flag=True
+                if not reload_flag:
+                    break
+             
             loaded_target_im,loaded_SP_map,loaded_SP_annotation,loaded_target_obj_pre=cityscape_im_generator[tar_idx]
             loaded_target_im=loaded_target_im.astype('float32')-image_mean
             
