@@ -151,7 +151,6 @@ def myGenerator():
                 if not reload_flag:
                     break
              
-            loaded_target_im,loaded_SP_map,loaded_SP_annotation,loaded_target_obj_pre=cityscape_im_generator[tar_idx]
             loaded_target_im=loaded_target_im.astype('float32')-image_mean
             
             loaded_SP_annotation=binarize_label(loaded_SP_annotation).astype('float32')
