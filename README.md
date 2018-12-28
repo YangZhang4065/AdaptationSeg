@@ -12,7 +12,7 @@ International Conference on Computer Vision, 2017
 
 ## [New] Survey of domain adaptation for semantic segmentation
 
-Check out our new survey of domain adaptation for semantic segmentation in our [journal submission](https://arxiv.org/pdf/1812.09953.pdf#page=13).
+Check out our new survey of domain adaptation for semantic segmentation in our [journal submission](https://arxiv.org/pdf/1812.09953.pdf#page=16).
 
 ![Review](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/review.jpg)
 
