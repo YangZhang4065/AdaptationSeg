@@ -8,7 +8,15 @@ Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
 International Conference on Computer Vision, 2017
 </pre>
 
-[[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465) [[**Poster**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV2017-poster-v2.pdf)
+[[**Journal paper**]](https://arxiv.org/pdf/1812.09953.pdf) [[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465) [[**Poster**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV2017-poster-v2.pdf)
+
+## [New] Survey of domain adaptation for semantic segmentation
+
+Check out our new survey of domain adaptation for semantic segmentation in our [journal submission](https://arxiv.org/pdf/1812.09953.pdf#page=13).
+
+![Review](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/review.jpg)
+
+## Overview
 
 ![Qualitative Results](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/qualitative_results.png)
 
