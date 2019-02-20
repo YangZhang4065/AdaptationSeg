@@ -4,15 +4,21 @@ This is the Python reference implementation of AdaptionSeg proposed in "Curricul
 
 <pre>
 Curriculum Domain Adaptation for Semantic Segmentation of Urban Scenes
-<a href='https://yangzhang4065.github.io/'>Yang Zhang</a>; Philip David; <a href='http://crcv.ucf.edu/people/faculty/Gong/'>Boqing Gong</a>;
+<a href='https://yangzhang4065.github.io/'>Yang Zhang</a>; Philip David; <a href='http://boqinggong.info/'>Boqing Gong</a>;
 International Conference on Computer Vision, 2017
 </pre>
 
-[[**Journal paper**]](https://arxiv.org/pdf/1812.09953.pdf) [[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465) [[**Poster**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV2017-poster-v2.pdf)
+<pre>
+A Curriculum Domain Adaptation Approach to the Semantic Segmentation of Urban Scenes
+<a href='https://yangzhang4065.github.io/'>Yang Zhang</a>; Philip David;  <a href='http://www.cs.ucf.edu/~foroosh/'>Hassan Foroosh</a>; <a href='http://boqinggong.info/'>Boqing Gong</a>;
+IEEE Transactions on Pattern Analysis and Machine Intelligence, 2019
+</pre>
+
+[[**TPAMI paper**]](https://arxiv.org/pdf/1812.09953.pdf) [[**ICCV paper**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV_version.pdf) [[**ArXiv Extended paper**]](https://arxiv.org/abs/1707.09465) [[**Poster**]](https://github.com/YangZhang4065/AdaptationSeg/raw/master/pdf/ICCV2017-poster-v2.pdf)
 
 ## [New] Survey of domain adaptation for semantic segmentation
 
-Check out our new survey of domain adaptation for semantic segmentation in our [journal submission](https://arxiv.org/pdf/1812.09953.pdf#page=16).
+Check out our new survey of domain adaptation for semantic segmentation in our [TPAMI paper](https://arxiv.org/pdf/1812.09953.pdf#page=16).
 
 ![Review](https://github.com/YangZhang4065/AdaptationSeg/blob/master/imgs/review.jpg)
 
