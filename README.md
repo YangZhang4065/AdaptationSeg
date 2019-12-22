@@ -56,7 +56,7 @@ It is recommended to use `Theano` as the `backend`. However `Tensorflow` should 
 
 1, Download `leftImg8bit_trainvaltest.zip` and `leftImg8bit_trainextra.zip` in CityScape dataset [here](https://www.cityscapes-dataset.com/login/). (Require registration)
 
-2, Download `SYNTHIA-RAND-CITYSCAPES` in SYNTHIA dataset [here](http://synthia-dataset.com/download-2/).
+2, Download `SYNTHIA-RAND-CITYSCAPES` in SYNTHIA dataset [here](http://synthia-dataset.net/downloads/).
 
 3, Download our auxiliary pre-inferred target domain properties (Including both superpixel landmark and label distribution described in the paper) & parsed annotation [here](http://crcv.ucf.edu/data/adaptationseg/ICCV_dataset.zip).
 
