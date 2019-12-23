@@ -129,4 +129,16 @@ pages={6},
 month = {Oct},
 year = {2017}
 }
+
+@ARTICLE{Zhang_2019_TPAMI,
+author={Zhang, Yang and David, Philip and Foroosh, Hassan and Gong, Boqing},
+journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+title={A Curriculum Domain Adaptation Approach to the Semantic Segmentation of Urban Scenes},
+year={2019},
+volume={},
+number={},
+pages={1-1},
+doi={10.1109/TPAMI.2019.2903401},
+ISSN={1939-3539},
+month={},}
 ```
