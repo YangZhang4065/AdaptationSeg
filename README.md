@@ -58,7 +58,7 @@ It is recommended to use `Theano` as the `backend`. However `Tensorflow` should 
 
 2, Download `SYNTHIA-RAND-CITYSCAPES` in SYNTHIA dataset [here](http://synthia-dataset.net/downloads/).
 
-3, Download our auxiliary pre-inferred target domain properties (Including both superpixel landmark and label distribution described in the paper) & parsed annotation [here](http://crcv.ucf.edu/data/adaptationseg/ICCV_dataset.zip).
+3, Download our auxiliary pre-inferred target domain properties (Including both superpixel landmark and label distribution described in the paper) & parsed annotation [here](https://crcv.ucf.edu/data/adaptationseg/ICCV_dataset.zip).
 
 4, Download the submodule [cityscapesScripts](https://github.com/YangZhang4065/cityscapesScripts/tree/c6d717acf7c57b51bd655f3739f3fbf00c7072f2) for evaluation purpose.
 
